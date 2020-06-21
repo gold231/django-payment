@@ -1,0 +1,92 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <title>Patroleum | Virtual Patrol</title>
+    {% load static %}
+    <link rel="icon"type="image/png" href="{% static 'mysite/images/fav-icon.png' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/bootstrap-slider.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/style-grey.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/custom.css' %}">
+    <script src="//code.tidio.co/477lwmfm3qpxuaqihmxc3szqcg9hcb0h.js" async></script>
+</head>
+
+<body class="fullpage">
+<div id="form-section" class="container-fluid signin">
+    <div class="website-logo">
+        <a href="{% url 'home' %}">
+            <div class="logo" style="width:62px;height:18px"></div>
+        </a>
+    </div>
+    <div class="row">
+        <div class="info-slider-holder">
+            <div class="info-holder">
+                <!-- <h6>A Service you can anytime modify.</h6> -->
+                <h1 style="color: white">FUELED TO PROTECT®</h1>
+                <h4 style="color: white">Virtual Patrol® by Patroleum®</h4>
+                <!-- <div class="bold-title">it’s not that hard to get<br>
+    a website <span>anymore.</span></div>
+                <div class="mini-testimonials-slider">
+                    <div>
+                        <div class="details-holder">
+                            <img class="photo" src="{% static 'mysite/images/person1.jpg' %}" alt="">
+                            <h4>Chris Walker</h4>
+                            <h5>CEO & CO-Founder @HelloBrandio</h5>
+                            <p>“In hostify we trust. I am with them for over
+    7 years now. It always felt like home!
+    Loved their customer support”</p>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="details-holder">
+                            <img class="photo" src="{% static 'mysite/images/person2.jpg' %}" alt="">
+                            <h4>Chris Walker</h4>
+                            <h5>CEO & CO-Founder @HelloBrandio</h5>
+                            <p>“In hostify we trust. I am with them for over
+    7 years now. It always felt like home!
+    Loved their customer support”</p>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+        <div class="form-holder">
+            <div class="menu-holder">
+                <ul class="main-links">
+                    <li><a class="normal-link" href="{% url 'register' %}">Don’t have an account?</a></li>
+                    <li><a class="sign-button" href="{% url 'register' %}">Sign up</a></li>
+                </ul>
+            </div>
+            <div class="signin-signup-form">
+                <div class="form-items">
+                    <div class="form-title">Sign in to your account</div>
+                    <form id="signinform" method="post">
+                        {% csrf_token %}
+                        <div class="form-text">
+<!--                            <input type="text" name="email" placeholder="E-mail Address" required>-->
+                            {{form.username}}
+                        </div>
+                        <div class="form-text">
+<!--                            <input type="password" name="password" placeholder="Password" required>-->
+                            {{form.password}}
+                        </div>
+                        <div class="form-button">
+                            <button id="submit" type="submit" class="ybtn ybtn-accent-color">Sign in</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="{% static 'mysite/js/jquery.min.js' %}"></script>
+<script src="{% static 'mysite/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'mysite/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'mysite/js/slick.min.js' %}"></script>
+<script src="{% static 'mysite/js/main.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,452 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <title>Patroleum | Virtual Patrol</title>
+    {% load static %}
+    <link rel="icon"type="image/png" href="{% static 'mysite/images/fav-icon.png' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/bootstrap.min.css' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/bootstrap-slider.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/style-grey.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/custom.css' %}">
+    <!-- <script src="//code.tidio.co/477lwmfm3qpxuaqihmxc3szqcg9hcb0h.js" async></script> -->
+</head>
+
+<body>
+    <div id="header-holder" class="main-header">
+        <div class="bg-animation">
+            <!-- <div class="graphic-show">
+                <img class="fix-size" src="{% static 'mysite/images/main1.png' %}" alt="">
+                <img class="img img1" src="{% static 'mysite/images/main2.png' %}" alt="">
+                <img class="img img2" src="{% static 'mysite/images/main3.png' %}" alt="">
+                <img class="img img3" src="{% static 'mysite/images/main4.png' %}" alt="">
+            </div> -->
+        </div>
+        <nav id="nav" class="navbar navbar-default navbar-full">
+            <div class="container-fluid">
+                <div class="container container-nav">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="navbar-header">
+                                <button aria-expanded="false" type="button" class="navbar-toggle collapsed"
+                                    data-toggle="collapse" data-target="#bs">
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>                                <a class="logo-holder" href="{% url 'home' %}">
+                                    <div class="logo" style="width:124px;height:36px"></div>
+                                </a>
+                            </div>
+                            <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse"
+                                id="bs">
+                                <ul class="nav navbar-nav navbar-right">
+                                    <li><a href="{% url 'home' %}">Home</a></li>
+                                    <li><a href="/features">Features</a></li>   
+                                    <li><a href="{% url 'plan_pricing' %}">Plans & Pricing</a></li>
+                                    {% if user.is_authenticated %}
+                                    <li class="dropdown">
+                                        <a>{{user.get_username}} <i class="fas fa-caret-down"></i></a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#">Dashboard</a></li>
+                                            <li><a href="#">Profile</a></li>
+                                            <li><a href="{% url 'logout' %}">Log out</a></li>
+                                        </ul>
+                                    </li>
+                                    {% else %}
+                                    <li><a class="login-button" href="{% url 'signin' %}">Login</a></li>
+                                    {% endif %}
+                                    <li class="support-button-holder support-dropdown">
+                                        <a class="support-button" href="#">Contact us</a>
+                                        <ul class="dropdown-menu">
+                                            <li><a href="#"><i class="fas fa-phone"></i>Toll-Free 1-800-777-1944</a></li>
+                                            <li><a href="#"  onclick="document.getElementById('tidio-chat-iframe').contentWindow.document.getElementById('button-body').click();"><i class="fas fa-comments"></i>Start a Live Chat</a></li>
+                                            <li><a href="#"><i class="fas fa-ticket-alt"></i>Open a ticket</a></li>
+                                            <li><a href="#"><i class="fas fa-book"></i>Knowledge base</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <div id="top-content" class="container-fluid">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="main-slider">
+                            <div class="slide">
+                                <h1 style="color: white">FUELED TO PROTECT®</h1>
+                                <h4 style="color: white">Virtual Patrol® by Patroleum®</h4>
+                                <br>
+                                {#                            {% if user.is_authenticated == False %}#}
+                                <div class="btn-holder">
+                                    <a href="{% url 'plan_pricing' %}" class="ybtn"
+                                        style="background-color: darkred; color: white">Order Now</a>
+                                </div>
+                                {#                            {% endif %}#}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <img class="header-graphic" src="{% static 'mysite/images/graphic1.png' %}" alt="" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="more-features" class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row-title">Our Promise</div>
+                    <div class="row-subtitle">Your satisfaction is guaranteed. Indeed.</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-3">
+                    <div class="mfeature-box">
+                        <div class="mfeature-icon">
+                            <i class="htfy htfy-trophy"></i>
+                        </div>
+                        <div class="mfeature-title">24/7 Live Watch</div>
+                        <div class="mfeature-details">Patroleum is watching your home, business or enterprise live 24/7
+                            365.</div>
+                        <hr>
+                        <div class="mfeature-details">Gain peace of mind with Patroleum watching your property live 24/7
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                    <div class="mfeature-box">
+                        <div class="mfeature-icon">
+                            <i class="htfy htfy-like"></i>
+                        </div>
+                        <div class="mfeature-title">Faster Response</div>
+                        <div class="mfeature-details">Patroleum sends police 3x faster than any competitor in the market,
+                            guaranteed.</div>
+                        <hr>
+                        <div class="mfeature-details">Patroleum guarantees to get police to your property faster they
+                            can.</div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3">
+                    <div class="mfeature-box">
+                        <div class="mfeature-icon">
+                            <i class="htfy htfy-cogwheel"></i>
+                        </div>
+                        <div class="mfeature-title">Instant Detection</div>
+                        <div class="mfeature-details">Patroleum detects non-authorized users and enables sirens in under
+                            a few seconds.</div>
+                        <hr>
+                        <div class="mfeature-details">We don't give any thinking time to burglars. We enable sirens
+                            instantly</div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-3">
+                    <div class="mfeature-box">
+                        <div class="mfeature-icon">
+                            <i class="htfy htfy-cogwheel"></i>
+                        </div>
+                        <div class="mfeature-title">Lowest Price</div>
+                        <div class="mfeature-details">Patent pending technology and 8 years of experience guarantees
+                            lowest price</div>
+                        <hr>
+                        <div class="mfeature-details">Trust the experts. Since 2012, Patroleum has been watching live.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="features" class="container-fluid">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-12">
+                    <div class="row-title">Our security features</div>
+                    <div class="row-subtitle"></div>
+                </div>
+            </div>
+            <div class="row rtl-cols">
+                <div class="col-sm-12 col-md-6">
+                    <div id="features-links-holder">
+                        <div class="icons-axis">
+                            <img src="{% static 'mysite/images/features-icon.png' %}" alt="">
+                        </div>
+                        <div class="feature-icon-holder feature-icon-holder1 opened" data-id="1">
+                            <div class="animation-holder">
+                                <div class="special-gradiant"></div>
+                            </div>
+                            <div class="feature-icon"><i class="htfy htfy-worldwide"></i></div>
+                            <div class="feature-title">24/7 Live Watch</div>
+                        </div>
+                        <div class="feature-icon-holder feature-icon-holder2" data-id="2">
+                            <div class="animation-holder">
+                                <div class="special-gradiant"></div>
+                            </div>
+                            <div class="feature-icon"><i class="htfy htfy-cogwheel"></i></div>
+                            <div class="feature-title">Faster Response</div>
+                        </div>
+                        <div class="feature-icon-holder feature-icon-holder3" data-id="3">
+                            <div class="animation-holder">
+                                <div class="special-gradiant"></div>
+                            </div>
+                            <div class="feature-icon"><i class="htfy htfy-location"></i></div>
+                            <div class="feature-title">Instant Detection</div>
+                        </div>
+                        <div class="feature-icon-holder feature-icon-holder4" data-id="4">
+                            <div class="animation-holder">
+                                <div class="special-gradiant"></div>
+                            </div>
+                            <div class="feature-icon"><i class="htfy htfy-download"></i></div>
+                            <div class="feature-title">Lowest Price</div>
+                        </div>
+                        <div class="feature-icon-holder feature-icon-holder5" data-id="5">
+                            <div class="animation-holder">
+                                <div class="special-gradiant"></div>
+                            </div>
+                            <div class="feature-icon"><i class="htfy htfy-like"></i></div>
+                            <div class="feature-title">7/24 Support</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6">
+                    <div id="features-holder">
+                        <div class="feature-box feature-d1 show-details">
+                            <div class="feature-title-holder">
+                                <span class="feature-icon"><i class="htfy htfy-worldwide"></i></span>
+                                <span class="feature-title">%99 Uptime</span>
+                            </div>
+                            <div class="feature-details">
+                                <p>Virtual Patrol® by Patroleum®</p>
+                            </div>
+                        </div>
+                        <div class="feature-box feature-d2">
+                            <div class="feature-title-holder">
+                                <span class="feature-icon"><i class="htfy htfy-cogwheel"></i></span>
+                                <span class="feature-title">Easy control panel</span>
+                            </div>
+                            <div class="feature-details">
+                                <p>At vero eos et accusamus et iusto odio dignissimos
+                                    ducimus qui blanditiis praesentium voluptatum div
+                                    atque corrupti quos dolores et quas molestias.</p>
+
+                                <p>dignissimos ducimus qui blanditiis praesentium
+                                    voluptatum div atque corrupti quos dolores et quas
+                                    unimo molestias.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box feature-d3">
+                            <div class="feature-title-holder">
+                                <span class="feature-icon"><i class="htfy htfy-location"></i></span>
+                                <span class="feature-title">Email Marketing</span>
+                            </div>
+                            <div class="feature-details">
+                                <p>At vero eos et accusamus et iusto odio dignissimos
+                                    ducimus qui blanditiis praesentium voluptatum div
+                                    atque corrupti quos dolores et quas molestias.</p>
+
+                                <p>dignissimos ducimus qui blanditiis praesentium
+                                    voluptatum div atque corrupti quos dolores et quas
+                                    unimo molestias.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box feature-d4">
+                            <div class="feature-title-holder">
+                                <span class="feature-icon"><i class="htfy htfy-download"></i></span>
+                                <span class="feature-title">1CLICK Script Installs</span>
+                            </div>
+                            <div class="feature-details">
+                                <p>At vero eos et accusamus et iusto odio dignissimos
+                                    ducimus qui blanditiis praesentium voluptatum div
+                                    atque corrupti quos dolores et quas molestias.</p>
+
+                                <p>dignissimos ducimus qui blanditiis praesentium
+                                    voluptatum div atque corrupti quos dolores et quas
+                                    unimo molestias.</p>
+                            </div>
+                        </div>
+                        <div class="feature-box feature-d5">
+                            <div class="feature-title-holder">
+                                <span class="feature-icon"><i class="htfy htfy-like"></i></span>
+                                <span class="feature-title">7/24 Support</span>
+                            </div>
+                            <div class="feature-details">
+                                <p>At vero eos et accusamus et iusto odio dignissimos
+                                    ducimus qui blanditiis praesentium voluptatum div
+                                    atque corrupti quos dolores et quas molestias.</p>
+
+                                <p>dignissimos ducimus qui blanditiis praesentium
+                                    voluptatum div atque corrupti quos dolores et quas
+                                    unimo molestias.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="pricing" class="container-fluid">
+        <div class="bg-color"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="row-title">Virtual Patrol Plans</div>
+                    <div class="row-subtitle">What is the size of your home?</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-md-4">
+                    <div class="pricing-box pricing-unity pricing-color1" style="margin-top: 0;">
+                        <div class="pricing-content" style="text-align: left; padding-top: 20px;">
+                            <hr style="background: black; height: 5px;">
+                            <h2 class="pricing-plan">Extra Small</h3>
+                                <div class="plan-size">1,000 - 1,500sf</div>
+                                <ul class="plan-details">
+                                    <li>24/7 Live Watch</li>
+                                    <li>Instant Detection</li>
+                                    <li>Multiple outdoor cameras</li>
+                                    <li>Multiple outdoor speakers</li>
+                                    <li>Loud flashing sirens</li>
+                                    <li>Free professional install</li>
+                                    <li>Patroleum&reg; security sign</li>
+                                </ul>
+                                <div class="monthly-price">
+                                    <h3>$699 setup fee</h3>
+                                    <h1>$79/month</h1>
+                                    <span>Plus taxes & fee</span>
+                                </div>
+                                <button class="order-btn">Order now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4">
+                    <div class="pricing-box pricing-unity pricing-color1" style="margin-top: 0;">
+                        <div class="pricing-content" style="text-align: left; padding-top: 20px;">
+                            <hr style="background: black; height: 5px;">
+                            <h2 class="pricing-plan">Regular Small</h3>
+                                <div class="plan-size">1,500 - 2,500sf</div>
+                                <ul class="plan-details">
+                                    <li>24/7 Live Watch</li>
+                                    <li>Instant Detection</li>
+                                    <li>Multiple outdoor cameras</li>
+                                    <li>Multiple outdoor speakers</li>
+                                    <li>Loud flashing sirens</li>
+                                    <li>Free professional install</li>
+                                    <li>Patroleum&reg; security sign</li>
+                                </ul>
+                                <div class="monthly-price">
+                                    <h3>$799 setup fee</h3>
+                                    <h1>$89/month</h1>
+                                    <span>Plus taxes & fee</span>
+                                </div>
+                                <button class="order-btn">Order now</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-4">
+                    <div class="pricing-box pricing-unity pricing-color1" style="margin-top: 0;">
+                        <div class="pricing-content" style="text-align: left; padding-top: 20px;">
+                            <hr style="background: black; height: 5px;">
+                            <h2 class="pricing-plan">Medium</h3>
+                                <div class="plan-size">2,500 - 3,500sf</div>
+                                <ul class="plan-details">
+                                    <li>24/7 Live Watch</li>
+                                    <li>Instant Detection</li>
+                                    <li>Multiple outdoor cameras</li>
+                                    <li>Multiple outdoor speakers</li>
+                                    <li>Loud flashing sirens</li>
+                                    <li>Free professional install</li>
+                                    <li>Patroleum&reg; security sign</li>
+                                </ul>
+                                <div class="monthly-price">
+                                    <h3>$899 setup fee</h3>
+                                    <h1>$99/month</h1>
+                                    <span>Plus taxes & fee</span>
+                                </div>
+                                <button class="order-btn">Order now</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="footer" class="container-fluid" style="position: relative;">
+        <div class="container">
+            <div class="row">
+                <div class="col-xs-6 col-sm-4 col-md-3">
+                    <div class="address-holder">
+                        <div class="phone"><i class="fas fa-phone"></i> 1-800-777-1944</div>
+                        <div class="email"><i class="fas fa-envelope"></i> <a href="mailto:help@patroleum.com" style="color: white !important;font-weight: bold;">help@patroleum.com</a></div>
+                        <div class="address">
+                            <i class="fas fa-map-marker"></i> 
+                            <div>201 s las vegas blvd #512
+                                Las Vegas, NV 89101 USA</div>
+                        </div>
+                    </div>
+                </div>
+    
+                <div class="col-xs-6 col-sm-2 col-md-3">
+                    <div class="footer-menu-holder">
+                        <h4>Main</h4>
+                        <ul class="footer-menu">
+                            <li><a href="/">My Patroleum</a></li>
+                            <li><a href="{% url 'plan_pricing' %}"">Plan & Pricing</a></li>
+                            <li><a href="/features">Features</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-xs-6 col-sm-2 col-md-2">
+                    <div class="footer-menu-holder">
+                        <h4>About</h4>
+                        <ul class="footer-menu">
+                            <li><a href="/about">About us</a></li>
+                            <li><a href="/contact">Contact us</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- <div class="col-xs-6 col-sm-3 col-md-3">
+                    <div class="footer-menu-holder">
+                        <h4>Check availability</h4>
+                        <ul class="footer-menu">
+                            <li>
+                                <form>
+                                    <input type="text" name="username" placeholder="E-mail Address" required>
+                                    <br>
+                                    <button type="submit">Submit</button>
+                                </form>
+                            </li>
+    
+                        </ul>
+                    </div>
+                </div> -->
+                <!-- <div class="col-xs-12 col-sm-1 col-md-1">
+                    <div class="social-menu-holder">
+                        <ul class="social-menu">
+                            <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                            <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                        </ul>
+                    </div>
+                </div> -->
+            </div>
+        </div>
+
+        <div class="footer-company"><p>© 2012-2020 Patroleum, Inc.</p></div>
+    </div>
+    <script src="{% static 'mysite/js/jquery.min.js' %}"></script>
+    <script src="{% static 'mysite/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'mysite/js/bootstrap-slider.min.js' %}"></script>
+    <script src="{% static 'mysite/js/slick.min.js' %}"></script>
+    <script src="{% static 'mysite/js/main.js' %}"></script>
+</body>
+
+</html>

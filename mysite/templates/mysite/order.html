@@ -1,0 +1,312 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <title>Patroleum | Virtual Patrol</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/bootstrap-slider.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/style-grey.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/custom.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/cardfields.css' %}">
+</head>
+
+<body>
+<div id="header-holder" class="inner-header hosting-page">
+    <nav id="nav" class="navbar navbar-default navbar-full">
+        <div class="container-fluid">
+            <div class="container container-nav">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                            <button aria-expanded="false" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="logo-holder" href="{% url 'home' %}">
+                                <div class="logo" style="width:124px;height:36px"></div>
+                            </a>
+                        </div>
+                        <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><a href="{% url 'features' %}"">Features</a></li>
+                                <li><a href="{% url 'plan_pricing' %}">Plans & Pricing</a></li>
+                                <li>
+                                    {% if user.is_authenticated %}
+                                        <a href="#">{{user.get_username}}</a>
+                                    {% else %}
+                                        <a class="login-button" href="{% url 'signin' %}">Login</a>
+                                    {% endif %}
+                                </li>
+                                {% if user.is_authenticated %}
+                                    <li>
+                                        <a href="{% url 'logout' %}">Log out</a>
+                                    </li>
+                                {% endif %}
+                                <li class="support-button-holder support-dropdown">
+                                    <a class="support-button" href="#">Contact us</a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#"><i class="fas fa-phone"></i>Toll-Free  08-197-435-01</a></li>
+                                      <li><a href="#"><i class="fas fa-comments"></i>Start a Live Chat</a></li>
+                                      <li><a href="#"><i class="fas fa-ticket-alt"></i>Open a ticket</a></li>
+                                      <li><a href="#"><i class="fas fa-book"></i>Knowledge base</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="page-head" class="container-fluid inner-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="page-title">Pricing</div>
+                    <div id="page-icon">
+                        <div class="pricing-icon">
+                            <img src="{% static 'mysite/images/service-icon1.svg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="h-info" class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="info-text grey-text">
+                    {{data.title}} <br>
+                    <p>Setup Fee: ${{data.onetime_price}}, Monthly Fee: ${{data.monthly_price}}</p>
+                    <p>Total Price: ${{price}}</p></div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- <div id="pricing" class="container-fluid">
+    <div id="order_now"></div>
+</div> -->
+
+<table border="0" align="center" valign="top" bgcolor="#FFFFFF" style="width:39%">
+     <tr>
+       <td colspan="2">
+         <div id="paypal-button-container"></div>
+       </td>
+     </tr>
+     <tr><td colspan="2">&nbsp;</td></tr>
+</table>
+
+   <div align="center"> or </div>
+
+   <!-- Advanced credit and debit card payments form -->
+   <div class='card_container'>
+     <form id='my-sample-form'>
+
+       <label for='card-number'>Card Number</label><div id='card-number' class='card_field'></div>
+       <div>
+         <label for='expiration-date'>Expiration Date</label><div id='expiration-date' class='card_field'></div>
+       </div>
+       <div>
+         <label for='cvv'>CVV</label><div id='cvv' class='card_field'></div>
+       </div>
+       <label for='card-holder-name'>Name on Card</label><input type='text' id='card-holder-name' name='card-holder-name' autocomplete='off' placeholder='card holder name'/>
+       <div>
+         <label for='card-billing-address-street'>Billing Address</label><input type='text' id='card-billing-address-street' name='card-billing-address-street' autocomplete='off' placeholder='street address'/>
+       </div>
+       <div>
+         <label for='card-billing-address-unit'>&nbsp;</label><input type='text' id='card-billing-address-unit' name='card-billing-address-unit' autocomplete='off' placeholder='unit'/>
+       </div>
+       <div>
+         <input type='text' id='card-billing-address-city' name='card-billing-address-city' autocomplete='off' placeholder='city'/>
+       </div>
+       <div>
+         <input type='text' id='card-billing-address-state' name='card-billing-address-state' autocomplete='off' placeholder='state'/>
+       </div>
+       <div>
+         <input type='text' id='card-billing-address-zip' name='card-billing-address-zip' autocomplete='off' placeholder='zip / postal code'/>
+       </div>
+       <div>
+         <input type='text' id='card-billing-address-country' name='card-billing-address-country' autocomplete='off' placeholder='country code' />
+       </div>
+       <br><br>
+       <button value='submit' id='submit' class='btn'>Pay</button>
+     </form>
+   </div>
+
+<div id="footer" class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div class="address-holder">
+                    <div class="phone"><i class="fas fa-phone"></i> 00 285 900 38502</div>
+                    <div class="email"><i class="fas fa-envelope"></i> hello@hostify.com</div>
+                    <div class="address">
+                        <i class="fas fa-map-marker"></i>
+                        <div>City Avenue, Office 64,<br>
+                            Floor 6,  Milbourne,<br>
+                            Australia.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-2 col-md-3">
+              <div class="footer-menu-holder">
+                  <h4>Main</h4>
+                  <ul class="footer-menu">
+                      <li><a href="/">My Patroleum</a></li>
+                      <li><a href="/plan-pricing">Plan & Pricing</a></li>
+                      <li><a href="/features">Features</a></li>
+                  </ul>
+              </div>
+          </div>
+          <div class="col-xs-6 col-sm-2 col-md-2">
+              <div class="footer-menu-holder">
+                  <h4>About</h4>
+                  <ul class="footer-menu">
+                      <li><a href="/about">About us</a></li>
+                      <li><a href="/contact">Contact us</a></li>
+                  </ul>
+              </div>
+          </div>
+          <!-- <div class="col-xs-6 col-sm-3 col-md-3">
+              <div class="footer-menu-holder">
+                  <h4>Check availability</h4>
+                  <ul class="footer-menu">
+                      <li>
+                          <form>
+                              <input type="text" name="username" placeholder="E-mail Address" required>
+                              <br>
+                              <button type="submit">Submit</button>
+                          </form>
+                      </li>
+
+                  </ul>
+              </div>
+          </div> -->
+            <!-- <div class="col-xs-12 col-sm-1 col-md-1">
+                <div class="social-menu-holder">
+                    <ul class="social-menu">
+                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div> -->
+        </div>
+    </div>
+</div>
+<script src="{% static 'mysite/js/jquery.min.js' %}"></script>
+<script src="{% static 'mysite/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'mysite/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'mysite/js/slick.min.js' %}"></script>
+<script src="{% static 'mysite/js/main.js' %}"></script>
+<!-- <script src="https://www.paypal.com/sdk/js?client-id=AT_UGlliwpOGbA1sNJNa4Idi4_vEBRbGPBp22NQGXTs0kltlL5MrNMg9eHyidgDac8KLs_cIBUhtaoeA&currency=USD"></script> -->
+<script src="https://www.paypal.com/sdk/js?components=hosted-fields,buttons&client-id=AdFtElkZ05rnVg4QEC2E71YuByc-a7NcnvWFD5miXsAQ2NwviHI8BC8euJ3t89V0ZAqFUawAhlWCmSE2&currency=USD" data-client-token="access_token$sandbox$xvs6ty6x8gsznc38$5201c8dcec19e031fffc7bbc9622734b"></script>
+<!-- <script>
+      var price = {{price}}
+      paypal.Buttons({
+        createOrder: function(data, actions) {
+          return actions.order.create({
+            purchase_units: [{
+              amount: {
+                value: price
+              }
+            }]
+          });
+        },
+        onApprove: function(data, actions) {
+          return actions.order.capture().then(function(details) {
+            alert('Transaction completed by ' + details.payer.name.given_name);
+          });
+        }
+      }).render('#order_now');
+</script> -->
+
+ <script>
+     //Displays PayPal buttons
+     var price = '{{price}}'
+
+     paypal.Buttons({
+       commit: false,
+          createOrder: function(data, actions) {
+           // This function sets up the details of the transaction, including the amount and line item details
+           return actions.order.create({
+             purchase_units: [{
+               amount: {
+                 value: price
+               }
+             }]
+           });
+         },
+         onCancel: function (data) {
+             // Show a cancel page, or return to cart
+          },
+         onApprove: function(data, actions) {
+           // This function captures the funds from the transaction
+           return actions.order.capture().then(function(details) {
+             // This function shows a transaction success message to your buyer
+             alert('Thanks for your purchase!');
+           });
+         }
+     }).render('#paypal-button-container');
+     // Eligibility check for advanced credit and debit card payments
+     if (paypal.HostedFields.isEligible()) {
+       paypal.HostedFields.render({
+         createOrder: function () {return "1";}, // replace order-ID with the order ID
+         styles: {
+           'input': {
+             'font-size': '17px',
+             'font-family': 'helvetica, tahoma, calibri, sans-serif',
+             'color': '#3a3a3a'
+           },
+           ':focus': {
+             'color': 'black'
+           }
+         },
+         fields: {
+           number: {
+             selector: '#card-number',
+             placeholder: 'card number'
+           },
+           cvv: {
+             selector: '#cvv',
+             placeholder: 'card security number'
+           },
+           expirationDate: {
+             selector: '#expiration-date',
+             placeholder: 'mm/yy'
+           }
+         }
+       }).then(function (hf) {
+         $('#my-sample-form').submit(function (event) {
+           event.preventDefault();
+           hf.submit({
+             // Cardholder Name
+             cardholderName: document.getElementById('card-holder-name').value,
+             // Billing Address
+             billingAddress: {
+               streetAddress: document.getElementById('card-billing-address-street').value,      // address_line_1 - street
+               extendedAddress: document.getElementById('card-billing-address-unit').value,       // address_line_2 - unit
+               region: document.getElementById('card-billing-address-state').value,           // admin_area_1 - state
+               locality: document.getElementById('card-billing-address-city').value,          // admin_area_2 - town / city
+               postalCode: document.getElementById('card-billing-address-zip').value,           // postal_code - postal_code
+               countryCodeAlpha2: document.getElementById('card-billing-address-country').value   // country_code - country
+             }
+           });
+         });
+       });
+     }
+     else {
+       $('#my-sample-form').hide();  // hides the advanced credit and debit card payments fields if merchant isn't eligible
+     }
+   </script>
+</body>
+</html>

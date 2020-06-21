@@ -1,0 +1,162 @@
+/*---------------------------------------
+ *                                      *
+ *       Add Your Custom CSS Here       *
+ *                                      *
+ ---------------------------------------*/
+ul.plan-details {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+}
+
+.plan-details > li {
+    border-bottom: 1px solid black;
+    color: red;
+    padding: 5px;
+    font-size: 1.8rem;
+}
+
+.order-btn {
+    background: transparent;
+    border: 1px solid red;
+    color: red;
+    padding: 10px;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.plan-size {
+    padding-bottom: 20px;
+    border-bottom: 1px solid black;
+}
+
+.monthly-price {
+    margin-top: 30px;
+}
+
+.monthly-price h3,
+.monthly-price h1 {
+    font-weight: bold;
+    color: black;
+    margin-top: 5px;
+}
+
+.pricing-plan {
+    color: red;
+    font-weight: bold;
+}
+
+.zipcode {
+    border: 1px solid #38363696;
+    padding: 5px 40px 5px 10px;
+    background: black;
+    font-size: 1.3rem;
+}
+
+input.zipcode::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+.submit-zipcode-btn {
+    color: red;
+    background: transparent;
+    border: 1px solid red;
+    padding: 10px;
+    margin-left: 20px;
+    margin-top: 25px;
+}
+
+.zip-form {
+    display: flex;
+}
+
+.zip-form h4 {
+    border-bottom: 1px solid white;
+    padding-bottom: 8px;
+    margin-bottom: 8px !important;
+}
+
+.footer-menu li a{
+    color: white !important;
+    font-weight: bold !important;
+    font-size: 12px !important;
+}
+
+.footer-menu-holder h4 {
+    border-bottom: 1px solid white;
+    padding-bottom: 8px;
+    margin-bottom: 8px !important;
+}
+
+#footer ul.footer-menu li {
+    margin-bottom: 10px !important;
+}
+
+.footer-links {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li a {
+    margin: 0 12px;
+    color: #3c3939 !important;
+    font-size: 1.3rem;
+}
+
+.license-word {
+    margin-bottom: 10px;
+    float: right;
+    margin-right: 30px;
+    font-size: 1.3rem;
+}
+
+.footer-container {
+    text-align: left;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-top: 3rem;
+}
+
+.phone,
+.email,
+.address > div{
+    font-weight: bold;
+}
+
+.address {
+    display: flex;
+}
+
+.footer-company {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 95%;
+    padding: 0;
+    margin: 0;
+}
+
+#footer {
+    background-color: black !important;
+}
+
+#header-holder .bg-animation,
+#header-holder.inner-header:before,
+.info-slider-holder,
+#more-features .mfeature-box:hover,
+#features-links-holder .feature-icon-holder {
+    background-color: black !important;
+    background-image: unset !important;
+}
+
+.person-name,
+.feature-title {
+    color: red !important;
+}

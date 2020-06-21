@@ -1,0 +1,346 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <title>Patroleum | Virtual Patrol</title>
+    {% load static %}
+    <link rel="icon"type="image/png" href="{% static 'mysite/images/fav-icon.png' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/bootstrap-slider.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/style-grey.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/custom.css' %}">
+    <script src="//code.tidio.co/477lwmfm3qpxuaqihmxc3szqcg9hcb0h.js" async></script>
+
+<body>
+
+<div id="header-holder" class="inner-header about-header">
+    <div class="bg-custom">
+        <div class="obj-gradiant1"></div>
+        <div class="obj-gradiant2"></div>
+    </div>
+    <nav id="nav" class="navbar navbar-default navbar-full">
+        <div class="container-fluid">
+            <div class="container container-nav">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                            <button aria-expanded="false" type="button" class="navbar-toggle collapsed"
+                                data-toggle="collapse" data-target="#bs">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>                                <a class="logo-holder" href="{% url 'home' %}">
+                                <div class="logo" style="width:124px;height:36px"></div>
+                            </a>
+                        </div>
+                        <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse"
+                            id="bs">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><a href="/features">Features</a></li>   
+                                <li><a href="{% url 'plan_pricing' %}">Plans & Pricing</a></li>
+                                {% if user.is_authenticated %}
+                                <li class="dropdown">
+                                    <a>{{user.get_username}} <i class="fas fa-caret-down"></i></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Dashboard</a></li>
+                                        <li><a href="#">Profile</a></li>
+                                        <li><a href="{% url 'logout' %}">Log out</a></li>
+                                    </ul>
+                                </li>
+                                {% else %}
+                                <li><a class="login-button" href="{% url 'signin' %}">Login</a></li>
+                                {% endif %}
+                                <li class="support-button-holder support-dropdown">
+                                    <a class="support-button" href="#">Contact us</a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#"><i class="fas fa-phone"></i>Toll-Free 1-800-777-1944</a></li>
+                                        <li><a href="#"  onclick="document.getElementById('tidio-chat-iframe').contentWindow.document.getElementById('button-body').click();"><i class="fas fa-comments"></i>Start a Live Chat</a></li>
+                                        <li><a href="#"><i class="fas fa-ticket-alt"></i>Open a ticket</a></li>
+                                        <li><a href="#"><i class="fas fa-book"></i>Knowledge base</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="page-head" class="container-fluid inner-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 text-center">
+                    <div class="icons-animation-holder">
+                        <div class="aicon aicon1"><img src="images/aicon1.png" alt=""></div>
+                        <div class="aicon aicon2"><img src="images/aicon2.png" alt=""></div>
+                        <div class="aicon aicon3"><img src="images/aicon3.png" alt=""></div>
+                        <div class="aicon aicon4"><img src="images/aicon4.png" alt=""></div>
+                        <div class="aicon aicon-main">
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 134 38" width="124px" height="35px" class="logo">
+                                <text kerning="auto" font-family="Rubik" fill="rgb(255, 255, 255)" transform="matrix( 11.051445195489, 0, 0, 11.0388026563729,0.08427829227281, 28.538802656373)" font-size="3.46px">Virtual Patrol by Patroleum</text>
+                            </svg>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 company-info-holder">
+                    <h4>Features</h4>
+                    <div class="info-slider">
+                        <div>
+                            <div class="details-holder">
+                                <p>Not just a little faster.<br>Much faster home security.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="details-holder">
+                                <p>Not just a little faster.<br>Much faster home security.</p>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="details-holder">
+                                <p>Not just a little faster.<br>Much faster home security.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="ifeatures" class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row-title">Why Patroleum?</div>
+                <div class="row-subtitle"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-6 col-md-3">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <img src="images/feature1.png" alt="">
+                    </div>
+                    <div class="feature-title">24/7 365</div>
+                    <div class="feature-details">Patroleum is watching live<br> 24 hours a day 7 days a week </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <img src="images/feature2.png" alt="">
+                    </div>
+                    <div class="feature-title">Faster</div>
+                    <div class="feature-details">Patroleum detects un-authorized users under a few seconds. </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <img src="images/feature3.png" alt="">
+                    </div>
+                    <div class="feature-title">More reliable</div>
+                    <div class="feature-details">Always online & always working. <br> We check your system health every 1 minute. </div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="feature-box">
+                    <div class="feature-icon">
+                        <img src="images/feature4.png" alt="">
+                    </div>
+                    <div class="feature-title">Trusted</div>
+                    <div class="feature-details">Watching live since 2012. More experience than any competitor in the industry.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="more-info" class="container-fluid">
+    <div class="bg-custom"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="links-holder">
+                    <ul>
+                        <li><div class="info-link opened" data-id="1">Patroleum Home</div></li>
+                        <li><div class="info-link" data-id="2">Patroleum Business</div></li>
+                        <li><div class="info-link" data-id="3">Patroleum Non Profit</div></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="info-details-holder">
+                    <div class="info-details info-d1 show-details">
+                        <h1>Upgrade your home security today.</h1>
+                        <p>Window & door sensors are not enough. Home automation has too many false alarms.
+                            <br>Virtual Patrol by Patroleum offers 24/7 live video monitoring at an affordable price.
+                        </p>
+                    </div>
+                    <div class="info-details info-d2">
+                        <h1>Patroleum will always<br>
+                        feels like home.</h1>
+                        <p>Window & door sensors are not enough. Home automation has too many false alarms.
+                            <br>Virtual Patrol by Patroleum offers 24/7 live video monitoring at an affordable price.
+                        </p>
+                    </div>
+                    <div class="info-details info-d3">
+                        <h1>Affordable pricing<br>
+                        made easy.</h1>
+                        <p>Window & door sensors are not enough. Home automation has too many false alarms.
+                            <br>Virtual Patrol by Patroleum offers 24/7 live video monitoring at an affordable price.
+                        </p>
+                    </div>       
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="team" class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row-title">Key features</div>
+                <div class="row-subtitle"></div>
+            </div>
+        </div>
+        <div class="row team-holder">
+            <div class="col-sm-6 col-md-3">
+                <div class="person-box">
+                    <div class="person-icon">
+                        <div class="person-img"><img src="images/team1.jpg" alt="" /></div>
+                    </div>
+                    <div class="person-name">Real humans</div>
+                    <div class="person-title">Patroleum agents watching live 24/7.</div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="person-box">
+                    <div class="person-icon">
+                        <div class="person-img"><img src="images/team1.jpg" alt="" /></div>
+                    </div>
+                    <div class="person-name">Artificial intelligence</div>
+                    <div class="person-title">Your security system gets smarter daily.</div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="person-box">
+                    <div class="person-icon">
+                        <div class="person-img"><img src="images/team2.jpg" alt="" /></div>
+                    </div>
+                    <div class="person-name">Instant detection</div>
+                    <div class="person-title">Non-authorized users are detected in seconds.</div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="person-box">
+                    <div class="person-icon">
+                        <div class="person-img"><img src="images/team3.jpg" alt="" /></div>
+                    </div>
+                    <div class="person-name">Faster response</div>
+                    <div class="person-title">Police are dispatched 2x faster than competitors.</div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="person-box">
+                    <div class="person-icon">
+                        <div class="person-img"><img src="images/team4.jpg" alt="" /></div>
+                    </div>
+                    <div class="person-name">Loud sirens</div>
+                    <div class="person-title">Loud flashing sirens are enabled when required.</div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="person-box">
+                    <div class="person-icon">
+                        <div class="person-img"><img src="images/team5.jpg" alt="" /></div>
+                    </div>
+                    <div class="person-name">Always online</div>
+                    <div class="person-title">No turning on & off your system. It's on 24/7 365.</div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="person-box">
+                    <div class="person-icon">
+                        <div class="person-img"><img src="images/team6.jpg" alt="" /></div>
+                    </div>
+                    <div class="person-name">Privacy</div>
+                    <div class="person-title">Cameras are installed outdoors of home only.</div>
+                </div>
+            </div>
+            <div class="col-sm-6 col-md-3">
+                <div class="person-box">
+                    <div class="person-icon">
+                        <div class="person-img"><img src="images/team7.jpg" alt="" /></div>
+                    </div>
+                    <div class="person-name">24/7 Agents</div>
+                    <div class="person-title">24/7 365 dedicated agents available always.</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="message1" class="container-fluid message-area normal-bg">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-6">
+                <div class="text-other-color1">Are you ready?</div>
+                <div class="text-other-color2">Call 1-800-777-1944 to order now.</div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+                <div class="buttons-holder">
+                    <a href="#" class="ybtn ybtn-accent-color" style="background: red !important; color: white !important; padding: 10px 40px !important;">Order now</a>
+                    <a href="#" class="ybtn ybtn-white ybtn-shadow">Contact Us</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="footer" class="container-fluid" style="position: relative;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div class="address-holder">
+                    <div class="phone"><i class="fas fa-phone"></i> 1-800-777-1944</div>
+                    <div class="email"><i class="fas fa-envelope"></i> <a href="mailto:help@patroleum.com" style="color: white !important;font-weight: bold;">help@patroleum.com</a></div>
+                    <div class="address">
+                        <i class="fas fa-map-marker"></i> 
+                        <div>201 s las vegas blvd #512
+                            Las Vegas, NV 89101 USA</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-2 col-md-3">
+                <div class="footer-menu-holder">
+                    <h4>Main</h4>
+                    <ul class="footer-menu">
+                        <li><a href="/">My Patroleum</a></li>
+                        <li><a href="{% url 'plan_pricing' %}"">Plan & Pricing</a></li>
+                        <li><a href="/features">Features</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-2 col-md-2">
+                <div class="footer-menu-holder">
+                    <h4>About</h4>
+                    <ul class="footer-menu">
+                        <li><a href="/about">About us</a></li>
+                        <li><a href="/contact">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-company"><p>© 2012-2020 Patroleum, Inc.</p></div>
+</div>
+<script src="{% static 'mysite/js/jquery.min.js' %}"></script>
+<script src="{% static 'mysite/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'mysite/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'mysite/js/slick.min.js' %}"></script>
+<script src="{% static 'mysite/js/main.js' %}"></script>
+</body>
+</html>

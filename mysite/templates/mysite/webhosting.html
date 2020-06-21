@@ -1,0 +1,206 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
+    <title>Patroleum | Virtual Patrol</title>
+    {% load static %}
+    <link rel="icon"type="image/png" href="{% static 'mysite/images/fav-icon.png' %}" />
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/bootstrap-slider.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/fontawesome-all.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/slick.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/style-grey.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'mysite/css/custom.css' %}">
+    <script src="//code.tidio.co/477lwmfm3qpxuaqihmxc3szqcg9hcb0h.js" async></script>
+</head>
+
+<body>
+<div id="header-holder" class="inner-header hosting-page">
+    <nav id="nav" class="navbar navbar-default navbar-full">
+        <div class="container-fluid">
+            <div class="container container-nav">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="navbar-header">
+                            <button aria-expanded="false" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                            <a class="logo-holder" href="{% url 'home' %}">
+                                <div class="logo" style="width:124px;height:36px"></div>
+                            </a>
+                        </div>
+                        <div style="height: 1px;" role="main" aria-expanded="false" class="navbar-collapse collapse" id="bs">
+                            <ul class="nav navbar-nav navbar-right">
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><a href="{% url 'features' %}"">Features</a></li>
+                                <li><a href="{% url 'plan_pricing' %}">Plans & Pricing</a></li>
+                                {% if user.is_authenticated %}
+                                <li class="dropdown">
+                                    <a>{{user.get_username}} <i class="fas fa-caret-down"></i></a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#">Dashboard</a></li>
+                                      <li><a href="#">Profile</a></li>
+                                      <li><a href="{% url 'logout' %}">Log out</a></li>
+                                    </ul>
+                                </li>
+                                {% else %}
+                                    <li><a class="login-button" href="{% url 'signin' %}">Login</a></li>
+                                {% endif %}
+                                <li class="support-button-holder support-dropdown">
+                                    <a class="support-button" href="#">Contact us</a>
+                                    <ul class="dropdown-menu">
+                                      <li><a href="#"><i class="fas fa-phone"></i>Toll-Free 1-800-777-1944</a></li>
+                                      <li><a href="#"><i class="fas fa-comments"></i>Start a Live Chat</a></li>
+                                      <li><a href="#"><i class="fas fa-ticket-alt"></i>Open a ticket</a></li>
+                                      <li><a href="#"><i class="fas fa-book"></i>Knowledge base</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div id="page-head" class="container-fluid inner-page">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 text-center">
+                    <div class="page-title">Pricing</div>
+                    <div id="page-icon">
+                        <div class="pricing-icon">
+                            <img src="{% static 'mysite/images/service-icon1.svg' %}" alt="">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="h-info" class="container-fluid">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="info-text grey-text">Virtual Patrol® by Patroleum®</div>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="pricing" class="container-fluid">
+    <div class="container">
+        <div class="row" style="justify-content: center;">
+            {% for plan in plans %}
+            <div class="col-sm-6 col-md-4">
+                <div class="pricing-box pricing-box-simple pricing-color1">
+                    <div class="pricing-content">
+                        <div class="pricing-head">
+                            <div class="pricing-title">{{plan.title}}</div>
+                            <div class="pricing-features">
+                                <ul>
+                                    <li>{{plan.home_area}}</li>
+                                </ul>
+                            </div>
+                            <div class="pricing-options">
+                                <div class="tab-content">
+                                    <div>
+                                        <div class="pricing-price" style="font-size:20px">${{ plan.onetime_price }} setup fee</div>
+                                        <div class="pricing-price">${{ plan.monthly_price }}/month</div>
+                                        <p>Plus taxes & fees.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pricing-details">
+                            <ul>
+                                <li>24/7 365 Live Watch</li>
+                                <li>Instant Detection</li>
+                                <li>Multiple outdoor cameras</li>
+                                <li>Multiple outdoor speakers</li>
+                                <li>Loud flashing sirens</li>
+                                <li>Free professional install</li>
+                                <li>Patroleum security sign</li>
+                            </ul>
+                        </div>
+                        <div class="pricing-link">
+                            <a class="ybtn" href="{% url 'order' plan.id %}" style="background-color: darkred">Order Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div id="footer" class="container-fluid" style="position: relative;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3">
+                <div class="address-holder">
+                    <div class="phone"><i class="fas fa-phone"></i> 1-800-777-1944</div>
+                    <div class="email"><i class="fas fa-envelope"></i> <a href="mailto:help@patroleum.com" style="color: white !important;font-weight: bold;">help@patroleum.com</a></div>
+                    <div class="address">
+                        <i class="fas fa-map-marker"></i> 
+                        <div>201 s las vegas blvd #512
+                            Las Vegas, NV 89101 USA</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xs-6 col-sm-2 col-md-3">
+                <div class="footer-menu-holder">
+                    <h4>Main</h4>
+                    <ul class="footer-menu">
+                        <li><a href="/">My Patroleum</a></li>
+                        <li><a href="{% url 'plan_pricing' %}">Plan & Pricing</a></li>
+                        <li><a href="{% url 'features' %}">Features</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xs-6 col-sm-2 col-md-2">
+                <div class="footer-menu-holder">
+                    <h4>About</h4>
+                    <ul class="footer-menu">
+                        <li><a href="{% url 'about' %}">About us</a></li>
+                        <li><a href="{% url 'contact' %}">Contact us</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- <div class="col-xs-6 col-sm-3 col-md-3">
+                <div class="footer-menu-holder">
+                    <h4>Check availability</h4>
+                    <ul class="footer-menu">
+                        <li>
+                            <form>
+                                <input type="text" name="username" placeholder="E-mail Address" required>
+                                <br>
+                                <button type="submit">Submit</button>
+                            </form>
+                        </li>
+
+                    </ul>
+                </div>
+            </div> -->
+            <!-- <div class="col-xs-12 col-sm-1 col-md-1">
+                <div class="social-menu-holder">
+                    <ul class="social-menu">
+                        <li><a href="#"><i class="fab fa-facebook"></i></a></li>
+                        <li><a href="#"><i class="fab fa-youtube"></i></a></li>
+                        <li><a href="#"><i class="fab fa-twitter"></i></a></li>
+                    </ul>
+                </div>
+            </div> -->
+        </div>
+    </div>
+
+    <div class="footer-company"><p>© 2012-2020 Patroleum, Inc.</p></div>
+</div>
+<script src="{% static 'mysite/js/jquery.min.js' %}"></script>
+<script src="{% static 'mysite/js/bootstrap.min.js' %}"></script>
+<script src="{% static 'mysite/js/bootstrap-slider.min.js' %}"></script>
+<script src="{% static 'mysite/js/slick.min.js' %}"></script>
+<script src="{% static 'mysite/js/main.js' %}"></script>
+</body>
+</html>
